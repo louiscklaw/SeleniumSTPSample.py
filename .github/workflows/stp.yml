@@ -1,0 +1,21 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.6.x'
+    - run: |
+        brew tap homebrew/cask-versions
+        brew cask install safari-technology-preview
+        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+    - run: |
+        pip3 install selenium
+        python3 stp.py
