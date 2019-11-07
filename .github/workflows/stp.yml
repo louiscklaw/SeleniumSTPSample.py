@@ -19,6 +19,7 @@ jobs:
         brew cask install safari-technology-preview
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
         echo $?
+        safaridriver --port 0 &
         pip3 install selenium
         echo start...
         python3 stp.py
