@@ -14,7 +14,7 @@ jobs:
         ruby-version: '2.6.x'
     - run: |
         system_profiler SPHardwareDataType SPSoftwareDataType SPSerialATADataType
-        sudo sqlite3 auth.db .dump | grep "safaridriver"
+        sudo sqlite3 /var/db/auth.db .dump | grep "safaridriver"
     - run: |
         brew tap homebrew/cask-versions
         brew cask install safari-technology-preview
