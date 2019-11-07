@@ -18,7 +18,8 @@ jobs:
         brew tap homebrew/cask-versions
         brew cask install safari-technology-preview
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
-        /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
+        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
+    - run: |
         pip3 install selenium
         echo start...
         python3 stp.py
