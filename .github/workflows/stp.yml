@@ -22,4 +22,5 @@ jobs:
     - run: |
         pip3 install selenium
         echo start...
-        python3 stp.py
+        date
+        python3 stp.py || date
