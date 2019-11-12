@@ -1,0 +1,13 @@
+os: osx
+osx_image: xcode11.2
+
+script:
+- system_profiler SPHardwareDataType SPSoftwareDataType SPSerialATADataType
+- sudo sqlite3 /var/db/auth.db .dump | grep "safaridriver"
+- brew tap homebrew/cask-versions
+- brew cask install safari-technology-preview
+- sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+- sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
+- pip3 install selenium
+- echo start...
+- sudo python3 stp.py
