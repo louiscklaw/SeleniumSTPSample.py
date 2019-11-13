@@ -21,6 +21,17 @@ jobs:
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
     - run: |
+        mkdir screenshots
         pip3 install selenium
+        screencapture screenshots/1.png
         echo start...
         sudo python3 stp.py
+        screencapture screenshots/2.png
+    - uses: actions/upload-artifact@master
+      with:
+        name: screenshots
+        path: screencapture screenshots/1.png
+    - uses: actions/upload-artifact@master
+      with:
+        name: screenshots
+        path: screencapture screenshots/2.png
