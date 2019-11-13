@@ -23,7 +23,11 @@ jobs:
     - run: |
         mkdir screenshots
         pip3 install selenium
+        echo "----- screenshots 1"
         screencapture screenshots/1.png
+        echo $?
+        ls -la screenshots
+        pwd
         echo "----- start..."
         sudo python3 stp.py || echo stp
         screencapture screenshots/2.png
@@ -31,7 +35,7 @@ jobs:
       with:
         name: screenshots
         path: screencapture screenshots/1.png
-    - uses: actions/upload-artifact@master
-      with:
-        name: screenshots
-        path: screencapture screenshots/2.png
+    #- uses: actions/upload-artifact@master
+    #  with:
+    #    name: screenshots
+    #    path: screencapture screenshots/2.png
