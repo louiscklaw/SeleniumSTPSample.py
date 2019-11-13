@@ -24,8 +24,8 @@ jobs:
         mkdir screenshots
         pip3 install selenium
         screencapture screenshots/1.png
-        echo start...
-        sudo python3 stp.py
+        echo "----- start..."
+        sudo python3 stp.py || echo stp
         screencapture screenshots/2.png
     - uses: actions/upload-artifact@master
       with:
