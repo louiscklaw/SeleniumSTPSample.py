@@ -34,8 +34,4 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         name: screenshots
-        path: screencapture screenshots/1.png
-    #- uses: actions/upload-artifact@master
-    #  with:
-    #    name: screenshots
-    #    path: screencapture screenshots/2.png
+        path: screenshots/1.png
