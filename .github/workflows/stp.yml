@@ -30,7 +30,6 @@ jobs:
         pwd
         echo "----- start..."
         sudo python3 stp.py || echo stp
-        screencapture screenshots/2.png
     - uses: actions/upload-artifact@master
       with:
         name: screenshots
