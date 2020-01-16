@@ -16,9 +16,20 @@ jobs:
         system_profiler SPHardwareDataType SPSoftwareDataType SPSerialATADataType
         sudo sqlite3 /var/db/auth.db .dump | grep "safaridriver"
     - run: |
+        sudo cat /etc/sudoers
+        sudo ls -ltra /etc/sudoers.d
+        sudo dscl . passwd /Users/$(whoami) "hogehoge"
+    - run: |
         brew tap homebrew/cask-versions
         brew cask install safari-technology-preview
-        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+        expect -c "
+        spawn \"/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver\" --enable
+        expect \"Password:\"
+        sleep 2
+        send \"hogehoge\n\"
+        interact
+        "
+        # sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
         # sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
     - run: |
         mkdir screenshots
