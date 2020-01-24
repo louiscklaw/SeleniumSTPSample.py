@@ -24,18 +24,20 @@ jobs:
         #sudo dscl . passwd /Users/$(whoami) "hogehoge"
     - run: |
         brew tap homebrew/cask-versions
+        brew update
         brew cask install safari-technology-preview
-        "/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --version
-        echo "========== STP installed"
-        expect -c "
-        spawn \"/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver\" --enable
-        expect \"Password:\"
-        sleep 2
-        send \"hogehoge\n\"
-        interact
-        "
-        # sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
-        # sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
+        #"/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --version
+        #echo "========== STP installed"
+        #expect -c "
+        #spawn \"/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver\" --enable
+        #expect \"Password:\"
+        #sleep 2
+        #send \"hogehoge\n\"
+        #interact
+        #"
+        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --version
+        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
     - run: |
         mkdir screenshots
         pip3 install selenium
