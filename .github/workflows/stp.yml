@@ -26,10 +26,12 @@ jobs:
         brew tap homebrew/cask-versions
         brew update
         brew cask install safari-technology-preview
-        defaults write com.apple.Safari IncludeDevelopMenu YES
-        defaults write com.apple.Safari AllowRemoteAutomation 1
+        defaults write com.apple.SafariTechnologyPreview IncludeDevelopMenu YES
+        defaults write com.apple.SafariTechnologyPreview AllowRemoteAutomation 1
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --version
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+        ## defaults write com.apple.Safari IncludeDevelopMenu YES
+        ## defaults write com.apple.Safari AllowRemoteAutomation 1
         ## sudo safaridriver --version
         ## sudo safaridriver --enable
     - run: |
