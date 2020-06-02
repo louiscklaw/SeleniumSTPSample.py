@@ -57,4 +57,4 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         name: screenshots
-        path: screenshots/1.png
+        path: screenshots/*.png
