@@ -29,7 +29,7 @@ jobs:
         defaults write com.apple.SafariTechnologyPreview IncludeDevelopMenu YES
         defaults write com.apple.SafariTechnologyPreview AllowRemoteAutomation 1
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --version
-        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+        # sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
         ## defaults write com.apple.Safari IncludeDevelopMenu YES
         ## defaults write com.apple.Safari AllowRemoteAutomation 1
         ## sudo safaridriver --version
