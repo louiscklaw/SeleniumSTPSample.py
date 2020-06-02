@@ -37,6 +37,9 @@ jobs:
         #"
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --version
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+        defaults write com.apple.Safari IncludeDevelopMenu YES
+        defaults write com.apple.Safari AllowRemoteAutomation 1
+        sudo safaridriver --enable
         sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
     - run: |
         mkdir screenshots
