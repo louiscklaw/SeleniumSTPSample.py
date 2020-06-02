@@ -23,9 +23,9 @@ jobs:
         #echo "========== new password"
         #sudo dscl . passwd /Users/$(whoami) "hogehoge"
     - run: |
-        brew tap homebrew/cask-versions
-        brew update
-        brew cask install safari-technology-preview
+        ## brew tap homebrew/cask-versions
+        ## brew update
+        ## brew cask install safari-technology-preview
         #"/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --version
         #echo "========== STP installed"
         #expect -c "
@@ -35,13 +35,14 @@ jobs:
         #send \"hogehoge\n\"
         #interact
         #"
-        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --version
-        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+        ## sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --version
+        ## sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --enable
+        ## sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
         defaults write com.apple.Safari IncludeDevelopMenu YES
         defaults write com.apple.Safari AllowRemoteAutomation 1
         sudo safaridriver --enable
-        sudo /Applications/Safari\ Technology\ Preview.app/Contents/MacOS/safaridriver --port 0 &
     - run: |
+        safaridriver --port 0 &
         mkdir screenshots
         pip3 install selenium
         echo "----- screenshots 1"
@@ -50,7 +51,8 @@ jobs:
         ls -la screenshots
         pwd
         echo "----- start..."
-        sudo python3 stp.py || echo stp
+        ## sudo python3 stp.py || echo stp
+        sudo python3 s.py
     - uses: actions/upload-artifact@master
       with:
         name: screenshots
