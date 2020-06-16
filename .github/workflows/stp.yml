@@ -23,17 +23,17 @@ jobs:
         #echo "========== new password"
         #sudo dscl . passwd /Users/$(whoami) "hogehoge"
     - run: |
-        #brew tap homebrew/cask-versions
-        #brew update
-        #brew cask install safari-technology-preview
-        #sudo "/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --version
+        brew tap homebrew/cask-versions
+        brew update
+        brew cask install safari-technology-preview
+        sudo "/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --version
         #defaults write com.apple.SafariTechnologyPreview IncludeDevelopMenu YES
         #defaults write com.apple.SafariTechnologyPreview AllowRemoteAutomation 1
-        # sudo "/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --enable
-        sudo safaridriver --version
-        defaults write com.apple.Safari IncludeDevelopMenu YES
-        defaults write com.apple.Safari AllowRemoteAutomation 1
-        ## sudo safaridriver --enable
+        sudo "/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver" --enable
+        ##sudo safaridriver --version
+        ##defaults write com.apple.Safari IncludeDevelopMenu YES
+        ##defaults write com.apple.Safari AllowRemoteAutomation 1
+        ##sudo safaridriver --enable
     - run: |
         mkdir screenshots
         pip3 install selenium
@@ -43,8 +43,8 @@ jobs:
         ls -la screenshots
         pwd
         echo "----- start..."
-        # sudo python3 stp.py
-        sudo python3 s.py
+        sudo python3 stp.py
+        ##sudo python3 s.py
         sudo find ./ -name "*.png"
     - uses: actions/upload-artifact@master
       with:
