@@ -4,12 +4,13 @@ on: [push]
 
 jobs:
   build:
-
+    continue-on-error: true
     runs-on: macOS-latest
 
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-ruby@v1
+
       with:
         ruby-version: '2.6.x'
     - run: |
